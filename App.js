@@ -167,7 +167,7 @@ export default function App() {
         />
         <MainDrawer.Screen
           name="Deconnextion"
-          component={LogIn}
+          component={LogInc}
           options={{
             drawerIcon: ({ focused, size }) => (
               <FontAwesome
