@@ -12,26 +12,29 @@ function HomeScreen({ navigation }) {
     return (
 <View style={styles.container}>
   <View style={styles.body}>
-    <Text>
-      This is the Home Screen
-    </Text>
+    <Text>this is Hmoe Screen</Text>
   </View>
+  <View style={styles.pointerholder}>
+      <TouchableOpacity style={styles.pointer} onPress={() => navigation.navigate('Pointage')}>
+      <FontAwesome name='clock-o' size={40} color='white'/>
+      </TouchableOpacity>
+    </View>
   <View style={styles.navebar}>
     <Pressable style={styles.thisbutton} onPress={() => navigation.navigate('Accueil')}>
-      <FontAwesome name='home' size={30} color='white' />
-      <Text style={{ color: 'white' }}>Accueil</Text>
+      <FontAwesome name='home' size={30} color='#1A938C' />
+      <Text style={{ color: '#1A938C' }}>Accueil</Text>
     </Pressable>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Horaire')}>
-      <FontAwesome name='calendar' size={30} color='white' />
-      <Text style={{ color: 'white' }}>Horaire</Text>
+      <FontAwesome name='calendar' size={30} color='#888888' />
+      <Text style={{ color: '#888888' }}>Horaire</Text>
     </Pressable>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Presence')}>
-      <FontAwesome name='times-circle' size={30} color='white' />
-      <Text style={{ color: 'white' }}>Prisence</Text>
+      <FontAwesome name='times-circle' size={30} color='#888888' />
+      <Text style={{ color: '#888888' }}>Prisence</Text>
     </Pressable>
-    <Pressable style={styles.touche} onPress={() => navigation.navigate('Messanger')}>
-      <FontAwesome name='send-o' size={30} color='white' />
-      <Text style={{ color: 'white' }}>Messanger</Text>
+    <Pressable style={styles.touche} onPress={() => navigation.navigate('Demandes')}>
+      <FontAwesome name='stack-exchange' size={30} color='#888888' />
+      <Text style={{ color: '#888888' }}>Demandes</Text>
     </Pressable>
   </View>
 </View>
@@ -49,11 +52,24 @@ function HomeScreen({ navigation }) {
     body:{
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
-
+    pointer: {
+      backgroundColor: '#1A938C',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 60,
+      height: 60,
+      borderRadius: 50,
+      marginBottom: 30,
+      marginRight: 30,
+    },
+    pointerholder: {
+      alignItems: 'flex-end',
+      justifyContent: 'flex-end',
+    },
     navebar: {
-      backgroundColor: '#238582',
+      backgroundColor: 'white',
       alignItems: 'center',
       justifyContent: 'space-around',
       flexDirection: 'row',
@@ -74,6 +90,5 @@ function HomeScreen({ navigation }) {
       height: '100%',
       borderTopLeftRadius: 10,
       borderTopRightRadius: 10,
-      backgroundColor: '#335b61',
     },
   })

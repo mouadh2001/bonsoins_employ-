@@ -1,36 +1,36 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet, Pressable } from 'react-native';
+import { View, TextInput, Text, StyleSheet, Pressable } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const ResetPasswordScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Réinitialiser le mot de passe</Text>
-      <View style={styles.inputContainer}>
+    <LinearGradient
+    colors={['#FFFFFF', '#1A938C']}
+    style={styles.container}>
+      <View><Text style={styles.title}>Réinitialiser le mot de passe</Text></View>
         <TextInput
           placeholder="Email"
+          placeholderTextColor={'white'}
           style={styles.input}
           autoCapitalize="none"
           keyboardType="email-address"
         />
-      </View>
-      <View style={styles.inputContainer}>
         <TextInput
           placeholder="Nouveau mot de passe"
+          placeholderTextColor={'white'}
           style={styles.input}
           secureTextEntry={true}
         />
-      </View>
-      <View style={styles.inputContainer}>
         <TextInput
           placeholder="Confirmer le nouveau mot de passe"
+          placeholderTextColor={'white'}
           style={styles.input}
           secureTextEntry={true}
         />
-      </View>
       <Pressable style={styles.button}>
         <Text style={styles.buttonText}>Confirmer</Text>
       </Pressable>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -43,28 +43,36 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 30,
+    fontSize: 25,
     marginBottom: 50,
   },
-  inputContainer: {
-    borderWidth: 1,
-    backgroundColor: '#ccc',
-    opacity: 0.5,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    marginVertical: 10,
-    width: 250,
-  },
   input: {
+    width: 250,
+    height: 40,
+    borderWidth: 1,
+    backgroundColor: '#1A938C',
+    opacity: 0.5,
+    borderColor: 'white',
+    borderRadius: 15,
     padding: 10,
+    marginBottom: 20,
+    shadowColor: '#fff',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    elevation: 5,
   },
   button: {
-    backgroundColor: '#4caf50',
-    borderRadius: 5,
-    padding: 10,
-    marginTop: 20,
     width: 150,
+    backgroundColor: '#3A9BA4',
+    borderRadius: 15,
+    padding: 10,
     alignItems: 'center',
+    marginBottom: 20,
+    borderColor: 'white',
   },
   buttonText: {
     color: '#fff',

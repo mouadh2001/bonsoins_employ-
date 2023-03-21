@@ -7,20 +7,23 @@ import "react-native-gesture-handler";
 import HomeScreen from "./Screens/HomeScreen";
 import ProfileScreen from "./Screens/ProfileScreen";
 import HoraireScreen from "./Screens/HoraireScreen";
-import MessangerScreen from "./Screens/MessangerScreen";
 import PresenceScreen from "./Screens/PresenceScreen";
 import DemandesScreen from "./Screens/DemandesScreen";
 import SettingsScreen from "./Screens/SettingsScreen";
 import LogIn from "./Screens/LogIn";
 import ResetPassword from "./Screens/ResetPassword";
+import ConjeDemandes from "./Component/ConjeDemandes";
+import DisponibilitieDemandes from "./Component/DisponibilitieDemandes";
+import ShiftDemandes from "./Component/ShiftDemandes";
+import PointageScreen from "./Component/PointageScreen";
+import AjouterConjé from "./Component/AjouterConjé";
+import AjouterShifts from "./Component/AjouterShifts";
+import AjouterDisponibilities from "./Component/AjouterDisponibilities";
 
 const Stack = createStackNavigator();
 
 const MainDrawer = createDrawerNavigator();
 
-function SignOut({ navigation }) {
-  navigation.navigate("Log In");
-}
 
 function StackScreens({ navigation }) {
   return (
@@ -30,62 +33,105 @@ function StackScreens({ navigation }) {
         component={LogIn}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Mot de passe oublié" component={ResetPassword} />
+      <Stack.Screen name="Mot de passe oublié" component={ResetPassword} options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center' }}/>
       <Stack.Screen
         name="Accueil"
         component={HomeScreen}
         options={{
+          title:'Accueil', headerTintColor: '#1A938C', headerTitleAlign: 'center',
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => navigation.toggleDrawer()}
               style={styles.opendrawer}
             >
-              <FontAwesome name="bars" size={24} />
+              <FontAwesome name="bars" size={24} color='#1A938C' />
             </TouchableOpacity>
           ),
+          headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'
         }}
       />
       <Stack.Screen
         name="Horaire"
         component={HoraireScreen}
         options={{
+          title:'Horaire', headerTintColor: '#1A938C', headerTitleAlign: 'center',
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => navigation.toggleDrawer()}
               style={styles.opendrawer}
             >
-              <FontAwesome name="bars" size={24} />
+              <FontAwesome name="bars" size={24} color='#1A938C' />
             </TouchableOpacity>
           ),
+          headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'
         }}
       />
       <Stack.Screen
         name="Presence"
         component={PresenceScreen}
         options={{
+          title:'Présence', headerTintColor: '#1A938C', headerTitleAlign: 'center',
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => navigation.toggleDrawer()}
               style={styles.opendrawer}
             >
-              <FontAwesome name="bars" size={24} />
+              <FontAwesome name="bars" size={24} color='#1A938C' />
             </TouchableOpacity>
           ),
+          headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'
         }}
       />
       <Stack.Screen
-        name="Messanger"
-        component={MessangerScreen}
+        name="Demandes"
+        component={DemandesScreen}
         options={{
+          title:'Demandes', headerTintColor: '#1A938C', headerTitleAlign: 'center',
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => navigation.toggleDrawer()}
               style={styles.opendrawer}
             >
-              <FontAwesome name="bars" size={24} />
+              <FontAwesome name="bars" size={24} color='#1A938C' />
             </TouchableOpacity>
           ),
+          headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'
         }}
+      />
+      <Stack.Screen
+        name="Conjés"
+        component={ConjeDemandes}
+        options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'}}
+      />
+      <Stack.Screen
+        name="Disponibilités"
+        component={DisponibilitieDemandes}
+        options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'}}
+      />
+      <Stack.Screen
+        name="Shifts"
+        component={ShiftDemandes}
+        options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'}}
+      />
+      <Stack.Screen
+        name="Pointage"
+        component={PointageScreen}
+        options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center'}}
+      />
+      <Stack.Screen
+        name="Ajouter Conjé"
+        component={AjouterConjé}
+        options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center', title: 'Demande de conjé'}}
+      />
+      <Stack.Screen
+        name="Ajouter Shift"
+        component={AjouterShifts}
+        options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center', title: 'Proposer a une shift'}}
+      />
+      <Stack.Screen
+        name="Ajouter Disponibilities"
+        component={AjouterDisponibilities}
+        options={{ headerStyle: {backgroundColor: 'white'}, headerTintColor: '#1A938C', headerTitleAlign: 'center', title: 'Demande de diponibilité'}}
       />
     </Stack.Navigator>
   );
@@ -124,6 +170,7 @@ export default function App() {
                 color={focused ? "#fff" : "#c7c7c7"}
               />
             ),
+
           }}
         />
         <MainDrawer.Screen
@@ -137,19 +184,7 @@ export default function App() {
                 color={focused ? "#fff" : "#c7c7c7"}
               />
             ),
-          }}
-        />
-        <MainDrawer.Screen
-          name="Mes Demandes"
-          component={DemandesScreen}
-          options={{
-            drawerIcon: ({ focused, size }) => (
-              <FontAwesome
-                name="list"
-                size={size}
-                color={focused ? "#fff" : "#c7c7c7"}
-              />
-            ),
+ 
           }}
         />
         <MainDrawer.Screen
@@ -163,11 +198,12 @@ export default function App() {
                 color={focused ? "#fff" : "#c7c7c7"}
               />
             ),
+
           }}
         />
         <MainDrawer.Screen
           name="Deconnextion"
-          component={LogInc}
+          component={LogIn}
           options={{
             drawerIcon: ({ focused, size }) => (
               <FontAwesome
@@ -176,6 +212,7 @@ export default function App() {
                 color={focused ? "#fff" : "#c7c7c7"}
               />
             ),
+
           }}
         />
       </MainDrawer.Navigator>
