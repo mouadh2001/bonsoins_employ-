@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
-import FontAwesome from "@expo/vector-icons/FontAwesome"
+import { AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { Pressable } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
 
 
 export default function ProfileScreen({ navigation }) {
@@ -46,20 +47,25 @@ export default function ProfileScreen({ navigation }) {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <StatusBar style='auto'/>
-      <Pressable onPress={() => navigation.goBack()} style={styles.closeButton}>
-        <FontAwesome name='close' size={30} style={styles.closeIcon} />
-      </Pressable>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backlogo}>
+        <AntDesign name="close" size={35} color="#1A938C" />
+      </TouchableOpacity>
       <View style={styles.profileInfoContainer}>
+        <Text style={{color: '#1A938C', fontSize: 25, fontWeight: 'bold', marginLeft: '5%'}}>Profil</Text>
         <Pressable onPress={handlePickImage}>
                   {imageUri ? (
           <Image source={{ uri: imageUri }} style={styles.image} />
         ) : (
           <View style={styles.placeholder}>
-            <Text style={styles.placeholderText}>Pick an Image</Text>
+            <Entypo name="camera" size={30} color="#040F34" />
           </View>
         )}
         </Pressable>
         </View>
+        <View style={styles.inputholder}>
+          <Text style={styles.inputtitle}>
+            Information personel
+          </Text>
         <TextInput
           placeholder="Prénom"
           onChangeText={setFirstName}
@@ -73,13 +79,42 @@ export default function ProfileScreen({ navigation }) {
           style={styles.input}
         />
         <TextInput
+          placeholder="Date de naissance"
+          onChangeText={setEmail}
+          value={email}
+          keyboardType='date'
+          style={styles.input}
+        />
+
+          <Text style={styles.inputtitle}>
+            Detail de contact
+          </Text>
+        <TextInput
           placeholder="Email"
           onChangeText={setEmail}
           value={email}
-          keyboardType="email-address"
+          keyboardType='Email'
           style={styles.input}
-        /><View style={{ height: 50 }} />
-
+        />
+        <TextInput
+          placeholder="Address"
+          onChangeText={setAddress}
+          value={address}
+          style={styles.input}
+        />
+          <Text style={styles.inputtitle}>
+            Numéro de telephone
+          </Text>
+        <TextInput
+          placeholder="Numéro du téléphone"
+          onChangeText={setPhoneNumber}
+          value={phoneNumber}
+          keyboardType="phone-pad"
+          style={styles.input}
+        />
+          <Text style={styles.inputtitle}>
+            Modifier le mot de passe
+          </Text>
         <TextInput
           placeholder="Mot de passe"
           onChangeText={setPassword}
@@ -94,118 +129,90 @@ export default function ProfileScreen({ navigation }) {
           secureTextEntry={true}
           style={styles.input}
         />
-        <Pressable onPress={() => {}} style={styles.changePasswordButton}>
-         <Text style={styles.changePasswordButtonText}> Changer mot de passe </Text>
-        </Pressable>
-        <View style={{ height: 50 }} />
-        <TextInput
-          placeholder="Address"
-          onChangeText={setAddress}
-          value={address}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Numéro du téléphone"
-          onChangeText={setPhoneNumber}
-          value={phoneNumber}
-          keyboardType="phone-pad"
-          style={styles.input}
-        />
+
         <TouchableOpacity onPress={handleSubmit} style={styles.saveButton}>
           <Text style={styles.saveButtonText}> Sauvegarder </Text>
         </TouchableOpacity>
-        <View style={{ height: 50 }} />
-      
+
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    
+    flex: 1,
+    width: '100%',
   },
-  closeButton: {
-    alignSelf: 'flex-start',
-  },
-  closeIcon: {
-    marginLeft: 6,
-    marginBottom: 3,
-  },
+  backlogo: {
+    color: '#1A938C',
+    marginLeft: 15,
+    marginTop: 15,
+},
   profileInfoContainer: {
+    marginTop: 30,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 40,
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginBottom: 10,
-    margin: 15,
-    marginLeft: 40,
+    justifyContent: 'space-between',
+    marginRight: '5%'
   },
   changeProfilePicText: {
     color: "#007AFF",
     fontSize: 16,
     marginTop: 10,
   },
+  inputholder: {
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    padding: 15,
+  },
+  inputtitle: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginLeft: '3%',
+    marginTop: 20,
+  },
   input: {
     height: 40,
     borderColor: 'gray',
-    borderWidth: 1,
+    borderBottomWidth: 2,
     marginTop: 20,
-    width: 250,
+    width: '90%',
     paddingLeft: 10,
     borderRadius: 5,
-    backgroundColor: '#ccc',
-  },
-  changePasswordButton: {
-    backgroundColor: '#007AFF',
-    marginTop: 20,
-    borderRadius: 5,
-    width: 150,
-    height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  changePasswordButtonText: {
-    color: 'white',
+    marginLeft: '5%',
+    marginRight: '5%',
   },
   saveButton: {
-    backgroundColor: '#4caf50',
+    backgroundColor: '#1A938C',
     marginTop: 20,
-    borderRadius: 5,
-    width: 150,
-    height: 50,
+    borderRadius: 40,
+    width: '90%',
+    height: 55,
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: '5%',
+    marginLeft: '5%',
   },
   saveButtonText: {
     color: 'white',
-    fontWeight: 'bold',
+    fontWeight: '600',
+    fontSize: 35,
   },
 image: {
-  width: 200,
-  height: 200,
-  borderRadius: 100,
-  borderWidth: 1,
+  width: 70,
+  height: 70,
+  borderRadius: 70,
+  marginRight: 15,
 },
 placeholder: {
-  borderWidth: 1,
-  borderColor: 'black',
-  backgroundColor: '#eee',
-  width: 200,
-  height: 200,
+  backgroundColor: '#1A938C',
+  width: 70,
+  height: 70,
+  borderRadius: 70,
   alignItems: 'center',
   justifyContent: 'center',
-},
-placeholderText: {
-  fontSize: 20,
-  color: 'gray',
+  marginRight: 15,
 },
   
 });

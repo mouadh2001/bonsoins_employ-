@@ -2,8 +2,9 @@ import React from 'react';
 import { View, TextInput, Text, StyleSheet, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const ResetPasswordScreen = () => {
+const ResetPasswordScreen = ({ navigation }) => {
   return (
+    
     <LinearGradient
     colors={['#FFFFFF', '#1A938C']}
     style={styles.container}>
@@ -27,7 +28,7 @@ const ResetPasswordScreen = () => {
           style={styles.input}
           secureTextEntry={true}
         />
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.buttonText}>Confirmer</Text>
       </Pressable>
     </LinearGradient>
@@ -68,11 +69,13 @@ const styles = StyleSheet.create({
   button: {
     width: 150,
     backgroundColor: '#3A9BA4',
-    borderRadius: 15,
+    borderRadius: 30,
     padding: 10,
     alignItems: 'center',
     marginBottom: 20,
     borderColor: 'white',
+    borderWidth: 2,
+    borderColor: 'white'
   },
   buttonText: {
     color: '#fff',

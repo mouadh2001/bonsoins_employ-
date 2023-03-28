@@ -47,20 +47,20 @@ export default function DisponibilitéScreen({ navigation }) {
     </View>
     <View style={styles.navebar}>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Accueil')} >
-      <FontAwesome name='home' size={30} color='white' /> 
-      <Text style={{ color: 'white' }}>Accueil</Text>
+      <FontAwesome name='home' size={30} color='#888888' /> 
+      <Text style={{ color: '#888888' }}>Accueil</Text>
     </Pressable>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Horaire')} >
-      <FontAwesome name='calendar' size={30} color='white' /> 
-      <Text style={{ color: 'white' }}>Horaire</Text>
+      <FontAwesome name='calendar' size={30} color='#888888' /> 
+      <Text style={{ color: '#888888' }}>Horaire</Text>
     </Pressable>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Presence')} >
-      <FontAwesome name='times-circle' size={30} color='white' />
-      <Text style={{ color: 'white' }}>Prisence</Text>
+      <FontAwesome name='times-circle' size={30} color='#888888' />
+      <Text style={{ color: '#888888' }}>Prisence</Text>
     </Pressable>
     <Pressable style={styles.thisbutton} onPress={() => navigation.navigate('Demandes')}>
-      <FontAwesome name='stack-exchange' size={30} color='white' />
-      <Text style={{ color: 'white' }}>Demandes</Text>
+      <FontAwesome name='stack-exchange' size={30} color='#1A938C' />
+      <Text style={{ color: '#1A938C' }}>Demandes</Text>
     </Pressable>
   </View>
     </ScrollView>
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,    
   },
   navebar: {
-    backgroundColor: '#238582',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'row',
@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
     height: '100%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    backgroundColor: '#335b61',
   },
 
 });

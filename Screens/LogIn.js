@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'reac
 import { Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-
 export default function LogIn({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -41,7 +40,7 @@ export default function LogIn({navigation}) {
     onChangeText={setPassword}
   />
   <Pressable style={styles.button} onPress={handleLogin}>
-    <Text style={styles.buttonText}>Commencer</Text>
+    <Text style={styles.buttonText}>Log In</Text>
   </Pressable>
   <View>
     <Text>Ou se connecter avec</Text>
@@ -112,11 +111,13 @@ const styles = StyleSheet.create({
   button: {
     width: 150,
     backgroundColor: '#3A9BA4',
-    borderRadius: 15,
+    borderRadius: 30,
     padding: 10,
     alignItems: 'center',
     marginBottom: 20,
     borderColor: 'white',
+    borderWidth: 2,
+    borderColor: 'white'
   },
   googleButton: {
     width: 50,
@@ -143,16 +144,17 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 25,
+    fontWeight: '600',
   },
   forgotButton: {
-    marginTop: 20,
+    marginTop: 15,
   },
   forgotButtonText: {
     color: 'white',
     fontSize: 16,
     textDecorationLine: 'underline',
+    marginBottom: 15,
   },
 });
 

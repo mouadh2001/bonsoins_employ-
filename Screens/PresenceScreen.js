@@ -3,7 +3,9 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import 'react-native-gesture-handler';
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { Pressable } from 'react-native';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
 
@@ -15,12 +17,12 @@ function PresenceScreen({ navigation }) {
   </View>
   <View style={styles.pointerholder}>
       <TouchableOpacity style={styles.pointer} onPress={() => navigation.navigate('Pointage')}>
-      <FontAwesome name='clock-o' size={40} color='white'/>
+      <MaterialIcons name="timer" size={40} color="white" />
       </TouchableOpacity>
     </View>
   <View style={styles.navebar}>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Accueil')} >
-      <FontAwesome name='home' size={30} color='#888888' /> 
+    <Octicons name="home" size={30} color="#888888" /> 
       <Text style={{ color: '#888888' }}>Accueil</Text>
     </Pressable>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Horaire')} >
@@ -28,11 +30,11 @@ function PresenceScreen({ navigation }) {
       <Text style={{ color: '#888888' }}>Horaire</Text>
     </Pressable>
     <Pressable style={styles.thisbutton} onPress={() => navigation.navigate('Presence')} >
-      <FontAwesome name='times-circle' size={30} color='#1A938C' />
-      <Text style={{ color: '#1A938C' }}>Prisence</Text>
+    <MaterialIcons name="access-alarms" size={30} color="#1A938C" />
+      <Text style={{ color: '#1A938C' }}>Présence</Text>
     </Pressable>
     <Pressable style={styles.touche} onPress={() => navigation.navigate('Demandes')}>
-      <FontAwesome name='stack-exchange' size={30} color='#888888' />
+    <MaterialIcons name="domain-verification" size={30} color="#888888" />
       <Text style={{ color: '#888888' }}>Demandes</Text>
     </Pressable>
   </View>
@@ -54,26 +56,29 @@ function PresenceScreen({ navigation }) {
       justifyContent: 'center'
     },
     pointer: {
+      position: 'absolute',
       backgroundColor: '#1A938C',
       alignItems: 'center',
       justifyContent: 'center',
       width: 60,
       height: 60,
       borderRadius: 50,
-      marginBottom: 30,
       marginRight: 30,
+      bottom: 110,
     },
     pointerholder: {
       alignItems: 'flex-end',
       justifyContent: 'flex-end',
     },
     navebar: {
+      bottom:0,
+      position: 'absolute',
       backgroundColor: 'white',
       alignItems: 'center',
       justifyContent: 'space-around',
       flexDirection: 'row',
-      height: '12%',
-
+      height: 77,
+      width: '100%',
     },
   
     touche: {
