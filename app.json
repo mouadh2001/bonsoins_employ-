@@ -1,7 +1,8 @@
+
 {
   "expo": {
-    "name": "SlideBar",
-    "slug": "SlideBar",
+    "name": "bonsoins_employe",
+    "slug": "bonsoins_employe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,6 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -22,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.mouadh_2001.SlideBar"
+      "package": "com.mouadh_2001.bonsoins_employe"
     },
     "web": {
       "favicon": "./assets/favicon.png"
